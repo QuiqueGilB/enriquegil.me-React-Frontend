@@ -1,0 +1,12 @@
+version: '3.7'
+services:
+  node:
+    container_name: enriquegil-me
+    image: node:lts-alpine
+    command: sh -c "npm install && npm start"
+    volumes:
+    - ./../..:/srv
+    working_dir: /srv
+    ports:
+    - 3000:3000
+
