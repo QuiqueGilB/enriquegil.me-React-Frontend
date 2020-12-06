@@ -1,0 +1,11 @@
+version: '3.7'
+services:
+  nginx:
+    container_name: enriquegil-me-nginx
+    image: nginx:lts-alpine
+    volumes:
+    - ./../../build:/var/www/html/
+    working_dir: /var/www/html
+    ports:
+    - 3001:80
+

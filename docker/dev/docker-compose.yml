@@ -3,6 +3,7 @@ services:
   node:
     container_name: enriquegil-me
     image: node:lts-alpine
+    user: node
     command: sh -c "npm install && npm start"
     volumes:
     - ./../..:/srv
