@@ -1,8 +1,7 @@
 import {Component} from "react";
-import TranslatorInterface, {DefaultInjection as TranslatorInjection} from "../../../../../Share/Domain/Translator/TranslatorInterface";
-import {inject} from "inversify";
-import TYPES from "../../../../../TYPES";
-
+import TranslatorInterface from "../../../../../Share/Domain/Translator/TranslatorInterface";
+import {TranslatorInjection} from "../../../../../DependencyInjection";
+import template from './index.html';
 
 export default class Navbar extends Component<any, any> {
 
@@ -11,7 +10,7 @@ export default class Navbar extends Component<any, any> {
     constructor(
         props: any,
         context: any,
-        @inject(TYPES.Translator) translator: TranslatorInterface
+        translator: TranslatorInterface = TranslatorInjection.default
     ) {
         super(props, context);
         console.log(translator);
@@ -19,12 +18,7 @@ export default class Navbar extends Component<any, any> {
     }
 
     render() {
-        return (
-            <div>
-                <p>Helloooooo</p>
-                <p>{this.translator?.trans('hello') || "aaa"}</p>
-            </div>
-        );
+        return (template);
     }
 
 }
